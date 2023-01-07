@@ -1,23 +1,25 @@
-import logo from './logo.svg';
+import { useState } from 'react';
+
 import './App.css';
+import Form from './components/Form';
+import List from './components/List';
 
 function App() {
+  const[studentList, setStudentList] = useState([]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div>
+      <header style={{"padding": "0px 10px"}}>
+        <h1>LATRACAL</h1>
       </header>
+      <div>
+        <div className="box">
+          <Form studentList={studentList} setStudentList={setStudentList}/>
+        </div>
+        <div className="box">
+          <List studentList={studentList} setStudentList={setStudentList}/>
+        </div>
+      </div>
     </div>
   );
 }
